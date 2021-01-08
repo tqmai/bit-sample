@@ -1,6 +1,7 @@
 # Hatch Labs Next.js Starter
 
 Created by: Tim Mai
+
 Last updated: 1/8/20
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). In addition, it has the following packages:
