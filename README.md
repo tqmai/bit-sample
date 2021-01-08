@@ -1,4 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hatch Labs Next.js Starter
+
+Created by: Tim Mai
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). In addition, it has the following packages:
+
+- ESLint (for code quality concerns)
+- Prettier (for code formatting concerns)
+- TypeScript (for static type checking)
+- lint-staged and husky (for pre-commit auto formatting)
+- Figmagic (for accessing design tokens in Figma)
+
+General Notes:
+
+- I opted to use a stricter styleguide (Airbnb) to allow for more code consistency
+- lint-staged prevents the user from committing code with errors
+- lint-staged also automatically runs Prettier on any changed files while committing them
+- If you see an eslint error in your tsconfig.json file, you can find a solution here: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
+
+Figmagic Notes:
+
+- You need to add a `FIGMA_URL` and `FIGMA_TOKEN` to your `.env` file in your root folder
+- Then run `figmagic` to get your design tokens, which will appear in a folder (/tokens) in the root (this works best if you install Figmagic globally first)
+- More detailed instructions can be found here: https://github.com/mikaelvesavuori/figmagic#running-figmagic
 
 ## Getting Started
 
