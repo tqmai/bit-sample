@@ -2,15 +2,16 @@
 
 Created by: Tim Mai
 
-Last updated: 1/8/20
+Last updated: 3/18/20
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). In addition, it has the following packages:
 
 - ESLint (for code quality concerns)
 - Prettier (for code formatting concerns)
 - TypeScript (for static type checking)
-- lint-staged and husky (for pre-commit auto formatting)
+- lint-staged, pretty-quick, and husky (for pre-commit auto formatting and linting)
 - Figmagic (for accessing design tokens in Figma)
+- styled-components (for ease of styling)
 
 General Notes:
 
