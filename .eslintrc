@@ -5,6 +5,7 @@
     "airbnb",
     "airbnb-typescript",
     "plugin:react-hooks/recommended",
+    "airbnb/hooks",
     "prettier",
     "prettier/@typescript-eslint",
     "prettier/react"
@@ -12,9 +13,28 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["src", "./src"],
+          ["styles", "./src/styles"],
+          ["pages", "./src/pages"],
+          ["components", "./src/components"],
+          ["public", "./public"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".scss", ".json"]
+      }
+    }
+  },
   "rules": {
     // add or override specific rules here
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "react/react-in-jsx-scope": 0 // unneeded for React 17 and newer
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "react/react-in-jsx-scope": 0, // unneeded for React 17 and newer
+    "react/jsx-props-no-spreading": "warn",
+    "import/no-unresolved": [2, { "commonjs": true }]
   }
 }
