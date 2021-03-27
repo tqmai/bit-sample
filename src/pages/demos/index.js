@@ -6,6 +6,11 @@ const DemoList = () => (
   <div>
     <h1>Demos</h1>
     <p>
+      <Link href="/demos/icons">
+        <a>Icons</a>
+      </Link>
+    </p>
+    <p>
       <Link href="/demos/buttons">
         <a>Buttons</a>
       </Link>
