@@ -13,7 +13,8 @@ import PropTypes from "prop-types";
 //   )
 // };
 
-const Search = ({ className, color, width }) => (
+// eslint-disable-next-line import/prefer-default-export
+export const Search = ({ className, color, width }) => (
   <svg
     className={className}
     fill={color}
@@ -48,4 +49,4 @@ Search.propTypes = {
   width: PropTypes.number,
 };
 
-export default Search;
+// export default Search;

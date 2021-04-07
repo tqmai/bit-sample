@@ -18,11 +18,11 @@
     /**
      * default directory for all components in workspace.
      **/
-    "defaultDirectory": "{scope}/{name}",
+    "defaultDirectory": "src/components",
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "src/components"
+    "defaultScope": "paclife.plds"
   },
   /**
    * main configuration for component dependency resolution.
