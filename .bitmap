@@ -3,19 +3,19 @@
 {
     "icon/search": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "src/components/icon/search"
     },
     "tokens": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.js",
         "rootDir": "src/styles/tokens"
     },
     "ui/button": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "src/components/ui/button"
     },
