@@ -1,0 +1,1 @@
+(this.webpackChunknew_hatchlabs_nextjs_starter=this.webpackChunknew_hatchlabs_nextjs_starter||[]).push([[179],{4673:()=>{},40891:()=>{},86590:()=>{}},t=>{"use strict";t.O(0,[767],(()=>{return s=6767,t(t.s=s);var s}));t.O()}]);

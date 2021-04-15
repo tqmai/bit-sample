@@ -1,7 +1,7 @@
 import React from "react";
 // import Grid from "@material-ui/core/Grid";
 
-import Search from "src/components/icon/search";
+import { Search } from "src/components/icon/search";
 
 const IconsDemo = () => (
   <div>

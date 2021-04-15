@@ -1,6 +1,5 @@
 // importing the following files here so we can modify its values before exporting them
 // export { default as FontFamilies } from "./figmagic/fontFamilies"
-import durations from "./figmagic/durations";
 import lineHeights from "./figmagic/lineHeights";
 import mediaQueries from "./figmagic/mediaQueries";
 
@@ -14,23 +13,14 @@ export { default as Radii } from "./figmagic/radii";
 export { default as Shadows } from "./figmagic/shadows";
 export { default as Spacing } from "./figmagic/spacing";
 export { default as ZIndices } from "./figmagic/zIndices";
+export { default as Durations } from "./figmagic/durations";
 
-const MediaQueries = mediaQueries;
+const MediaQueries: any = mediaQueries; // because we are adding additional properties to this object, we need this object type to be 'any'
 MediaQueries.xxl = "1600px";
 export { MediaQueries };
 
-/** Add seconds to the numeric value of durations */
-const Durations = {};
-const durationKeys = Object.keys(durations);
-for (let i = 0; i < durationKeys.length; i += 1) {
-  const key = durationKeys[i];
-  Durations[key] = `${durations[key]}s`;
-}
-
-export { Durations };
-
 /** Convert line height values to rem */
-const LineHeights = {};
+const LineHeights: any = {}; // because we are adding additional properties to this object, we need this object type to be 'any'
 const lineHeightKeys = Object.keys(lineHeights);
 for (let i = 0; i < lineHeightKeys.length; i += 1) {
   const key = lineHeightKeys[i];

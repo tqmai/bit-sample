@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 import {
@@ -12,11 +11,12 @@ import {
   Radii,
   Durations,
   BorderWidths,
+  // eslint-disable-next-line import/no-extraneous-dependencies
 } from "@paclife/plds.tokens";
 import ButtonBase from "./ButtonBase";
 import Ripple from "./Ripple";
 
-const StyledButtonBase = styled(ButtonBase)`
+const StyledButtonBase = styled(ButtonBase)<ButtonProps>`
   /**
     Font Styling
     Note: I am not using the Typography component here because it is difficult 
@@ -112,7 +112,7 @@ const PrimaryButton = styled(StyledButtonBase)`
   &:hover {
     background-color: ${Colors.blue700};
     border-color: ${Colors.blue700};
-    transition: background-color ${Durations.medium}, border-color ${Durations.medium};
+    transition: background-color ${Durations.medium}s, border-color ${Durations.medium}s;
   }
 
   &:active {
@@ -146,7 +146,7 @@ const PrimaryButton = styled(StyledButtonBase)`
       &:hover {
         background-color: ${Colors.blue200};
         border-color: ${Colors.blue200};
-        transition: background-color ${Durations.medium}, border-color ${Durations.medium};
+        transition: background-color ${Durations.medium}s, border-color ${Durations.medium}s;
       }
 
       &:active {
@@ -178,7 +178,7 @@ const SecondaryButton = styled(StyledButtonBase)`
   &:hover {
     border-color: ${Colors.neutral300};
     color: ${Colors.blue700};
-    transition: border-color ${Durations.medium}, color ${Durations.medium};
+    transition: border-color ${Durations.medium}s, color ${Durations.medium}s;
 
     fill: ${Colors.blue700};
     stroke: ${Colors.blue700};
@@ -212,7 +212,7 @@ const TextButton = styled(SecondaryButton)`
   &:hover {
     background-color: ${Colors.blue100};
     color: ${Colors.blue700};
-    transition: background-color ${Durations.medium}, color ${Durations.medium};
+    transition: background-color ${Durations.medium}s, color ${Durations.medium}s;
   }
 
   &:focus-visible {
@@ -238,7 +238,7 @@ const TextButton = styled(SecondaryButton)`
       &:hover {
         color: ${Colors.blue200};
         background-color: ${Colors.blue900};
-        transition: background-color ${Durations.medium}, color ${Durations.medium};
+        transition: background-color ${Durations.medium}s, color ${Durations.medium}s;
 
         fill: ${Colors.blue200};
         stroke: ${Colors.blue200};
@@ -288,7 +288,7 @@ const DestructiveButton = styled(StyledButtonBase)`
   &:hover {
     background-color: ${Colors.red700};
     border-color: ${Colors.red700};
-    transition: background-color ${Durations.medium}, border-color ${Durations.medium};
+    transition: background-color ${Durations.medium}s, border-color ${Durations.medium}s;
   }
 
   &:active {
@@ -333,12 +333,12 @@ const IconSpan = styled.span`
   }
 `;
 
-const StartIconSpan = styled(IconSpan)`
+const StartIconSpan = styled(IconSpan)<ButtonProps>`
   /* only add margin if variant is not 'icon' */
   margin-right: ${({ variant }) => (variant === "icon" ? 0 : Spacing[8])};
 `;
 
-const EndIconSpan = styled(IconSpan)`
+const EndIconSpan = styled(IconSpan)<ButtonProps>`
   /* only add margin if variant is not 'icon' */
   margin-left: ${({ variant }) => (variant === "icon" ? 0 : Spacing[8])};
 `;
@@ -350,6 +350,20 @@ const VariantMapping = {
   icon: IconButton,
   destructive: DestructiveButton,
 };
+
+export interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+  className?: string;
+  dark?: boolean;
+  disabled?: boolean;
+  endIcon?: React.ReactNode;
+  fixedWidth?: boolean;
+  fullWidth?: boolean;
+  href?: string;
+  size?: "large" | "medium" | "small";
+  startIcon?: React.ReactNode;
+  variant?: "primary" | "secondary" | "text" | "icon" | "destructive";
+}
 
 /**
  * A React button component that dynamically changes themes, sizes, and adds icons depending on the props passed to it.
@@ -368,22 +382,22 @@ const VariantMapping = {
  * @param {string} variant  - the version of a button
  * @return - returns a button component with various prop options to change its styling.
  */
-const Button = React.forwardRef(
+export const Button = React.forwardRef(
   (
     {
-      children,
-      className,
-      dark,
-      disabled,
-      endIcon,
-      href,
-      fixedWidth,
-      fullWidth,
-      startIcon,
-      size,
-      variant,
+      children = null,
+      className = "",
+      dark = false,
+      disabled = false,
+      endIcon = null,
+      href = "",
+      fixedWidth = false,
+      fullWidth = false,
+      startIcon = null,
+      size = "medium",
+      variant = "primary",
       ...others // used to receive any native HTML element props
-    },
+    }: ButtonProps,
     ref
   ) => {
     // ensure that startIcon and endIcon are the right size
@@ -396,14 +410,14 @@ const Button = React.forwardRef(
     };
 
     const iconSize = iconSizeChooser(size, variant);
-    let startIconWithWidth = null;
+    let startIconWithWidth: React.ReactNode = null;
     if (startIcon) {
-      startIconWithWidth = React.cloneElement(startIcon, { width: iconSize });
+      startIconWithWidth = React.cloneElement(startIcon as React.ReactElement<any>, { width: iconSize });
     }
 
     let endIconWithWidth = null;
     if (endIcon) {
-      endIconWithWidth = React.cloneElement(endIcon, { width: iconSize });
+      endIconWithWidth = React.cloneElement(endIcon as React.ReactElement<any>, { width: iconSize });
     }
 
     // generate the right button variant to render
@@ -434,35 +448,3 @@ const Button = React.forwardRef(
     );
   }
 );
-
-Button.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  dark: PropTypes.bool,
-  disabled: PropTypes.bool,
-  endIcon: PropTypes.node,
-  fixedWidth: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  href: PropTypes.string,
-  size: PropTypes.oneOf(["large", "medium", "small"]),
-  startIcon: PropTypes.node,
-  variableWidth: PropTypes.bool,
-  variant: PropTypes.oneOf(["primary", "secondary", "text", "icon", "destructive"]),
-};
-
-Button.defaultProps = {
-  children: null,
-  className: "",
-  dark: false,
-  disabled: false,
-  endIcon: null,
-  fixedWidth: false,
-  fullWidth: false,
-  href: "",
-  startIcon: null,
-  size: "medium",
-  variableWidth: false,
-  variant: "primary",
-};
-
-export default Button;

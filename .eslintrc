@@ -29,12 +29,11 @@
   },
   "rules": {
     // add or override specific rules here
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/react-in-jsx-scope": 0, // unneeded for React 17 and newer
     "react/jsx-props-no-spreading": "warn",
-    "import/no-unresolved": [2, { "commonjs": true }]
+    "import/no-unresolved": [2, { "commonjs": true }],
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 1
   }
 }

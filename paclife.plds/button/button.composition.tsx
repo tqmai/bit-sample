@@ -1,13 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { Search } from "@paclife/plds.icon.search";
-import ButtonBase from "../../../paclife.plds/button/ButtonBase";
-import { Button } from "../../../paclife.plds/button";
+import { Colors } from "@paclife/plds.tokens";
+import ButtonBase from "./ButtonBase";
+import { Button } from "./button";
 
-import { Colors } from "../../styles/tokens";
-
-const Buttons2 = () => (
+export const Buttons = () => (
   <section
     style={{
       display: "flex",
@@ -25,24 +25,6 @@ const Buttons2 = () => (
     <Grid container>
       <Grid item xs={12} sm={6} md={3} lg={2}>
         <div>
-          <Button variant="primary" size="large">
-            Large
-          </Button>
-          <br />
-          <br />
-          <Button variant="secondary" size="large">
-            Large
-          </Button>
-          <br />
-          <br />
-          <Button variant="text" size="large">
-            Large
-          </Button>
-          <br />
-          <br />
-          <Button variant="destructive" size="large">
-            Large
-          </Button>
           <h3>Base</h3>
           <br />
           <ButtonBase>Default</ButtonBase>
@@ -54,9 +36,7 @@ const Buttons2 = () => (
           <ButtonBase href="/">Link to Home</ButtonBase>
           <br />
           <br />
-          <ButtonBase href="https://reactjs.org/" download>
-            External Link
-          </ButtonBase>
+          <ButtonBase href="https://reactjs.org/">External Link</ButtonBase>
           <br />
           <br />
         </div>
@@ -344,4 +324,4 @@ const Buttons2 = () => (
   </section>
 );
 
-export default Buttons2;
+// export default Buttons2;
